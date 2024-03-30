@@ -18,54 +18,12 @@ import EmailField from "@/components/elements/FormFilds/EmailField";
 import PasswordField from "@/components/elements/FormFilds/PasswordField";
 import {Checkbox, Stack, Button, Paper, Title} from "@mantine/core";
 import styles from '@/styles/auth/index.module.css'
+import {useUserForm} from "@/hooks/useUserForm";
 
 
 const SignUpForm = ({switchForm}) => {
   const [spinner, setSpinner] = useState(false)
-  // const {
-  //   register,
-  //   formState: { errors },
-  //   handleSubmit,
-  //   resetField,
-  // } = useForm()
-  // const mode = useStore($mode)
-  // const darkModeClass = mode === 'dark' ? `${styles.dark_mode}` : ''
-
-  const form = useForm({
-    initialValues: {
-      name: '',
-      surname: '',
-      email: '',
-      password: '',
-      terms: false,
-    },
-
-    validate: {
-      name: (val) => val.length <= 1 ? "Мінімальна кількість символів 2" : null,
-      surname: (val) => val.length <= 1 ? "Мінімальна кількість символів 2" : null,
-      email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Помилка у введенні'),
-      password: (val) => {
-        let allDownCase;
-        if (val.length <= 6) {
-          // return 'Password should include at least 6 characters'
-          return 'Мінімальна довжина паролю 6 символів'
-        }
-
-        [...val].map((ch) => {
-          if (ch === ch.toUpperCase()) {
-            allDownCase = false
-          } else {
-            allDownCase = true
-          }
-        })
-
-        if (allDownCase) {
-          return "Пароль повинен містити великі літери"
-        }
-        return null
-      },
-    },
-  });
+  const form = useUserForm()
 
   const onSubmit = async (data) => {
     try {
@@ -95,8 +53,8 @@ const SignUpForm = ({switchForm}) => {
   return (
     <Paper className={`${styles.auth_form}  h-fit `}
            shadow="md" radius="lg" withBorder>
-      <form
-        onSubmit={form.onSubmit((values, event) => {
+      <form noValidate
+            onSubmit={form.onSubmit((values, event) => {
         })}
       >
         <Title order={2} className={`${styles.auth_form_title} text-center mb-[40px]`}>

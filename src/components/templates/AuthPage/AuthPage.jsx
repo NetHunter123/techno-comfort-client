@@ -44,7 +44,7 @@ const AuthPage = () => {
 
   return (
     <>
-      <div className={`${styles.auth} h-screen`} style={{
+      <div className={`${styles.auth} h-screen bg-[white]`} style={{
         backgroundImage: `url(${bgImg.src})`
       }}>
 
@@ -64,13 +64,13 @@ const AuthPage = () => {
           ref={bContainer}
         >
           <div className={styles.container__inner}>
-            <SignInForm />
+            <SignInForm/>
           </div>
         </div>
 
 
         <div
-          className={`${styles.switch} ${styles.auth__side} `}
+          className={`${styles.auth__side} `}
           id="switch-cnt"
           ref={switchCtn}
         >
@@ -82,7 +82,7 @@ const AuthPage = () => {
             className={`${styles.auth__side_circle} ${styles.auth__side_circle__t} `}
             ref={switchCircle2}
           />
-          <div id="switch-c1" className={styles.auth__side_container} ref={switchC1}>
+          <div id="switch-c1" className={`${styles.auth__side_container}`} ref={switchC1}>
             {!isMedia800 && (
               <>
                 <h2
@@ -104,9 +104,9 @@ const AuthPage = () => {
               gradient={{from: 'yellow', to: 'orange', deg: 90}}
               variant="gradient"
               // justify="center"
-              leftSection={<FiLogIn size={18}/>}
+              leftSection={<FiLogIn size={!isMedia800?18: 28}/>}
             >
-              Увійти
+              {!isMedia800 && "Вхід"}
             </Button>
           </div>
           <div id="switch-c2" className={`${styles.auth__side_container} ${styles.is_hidden}`} ref={switchC2}>
@@ -119,8 +119,7 @@ const AuthPage = () => {
                 </h2>
                 <p
                   className={`${styles.auth__side_description} ${styles.description} `}
-                >
-                  Введите свои личные данные и начните путешествие с нами
+                >Введи свої особисті дані і насолоджуйся смачнини пропозиціями, вдалих покупок!
                 </p>
               </>
             )}
@@ -130,24 +129,14 @@ const AuthPage = () => {
               gradient={{from: 'yellow', to: 'orange', deg: 90}}
               variant="gradient"
               // justify="center"
-              leftSection={<FiUserPlus size={18}/>}
+              leftSection={<FiUserPlus size={!isMedia800?18: 28}/>}
             >
-              Зареєструватись
+              {!isMedia800 && "Реєстрація"}
             </Button>
           </div>
         </div>
       </div>
     </>
-// @layer mantine, tailwind;
-//
-// @import '@mantine/core/styles.css' layer(mantine);
-//
-// @layer tailwind {
-//   @tailwind base;
-//   @tailwind components;
-//   @tailwind utilities;
-//   }
-
   );
 };
 

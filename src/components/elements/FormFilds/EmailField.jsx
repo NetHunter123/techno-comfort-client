@@ -25,7 +25,7 @@ const EmailField = ({form}) => (
     placeholder="hello@gmail.com"
     value={form.values.email}
     onChange={(event) => form.setFieldValue('email', event.currentTarget.value)}
-    error={form.errors.email || 'Неправильно введений емейл'}
+    error={form.errors.email}
     type="email"
     radius="md"
   />

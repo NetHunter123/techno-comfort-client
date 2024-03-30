@@ -1,18 +1,34 @@
-export const UseUserForm = () => {
+import {useForm} from "@mantine/form";
+
+export const useUserForm = () => {
   const form = useForm({
     initialValues: {
-      email: '',
       name: '',
+      surname: '',
+      email: '',
       password: '',
       terms: false,
     },
 
     validate: {
-      email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Invalid email'),
+      name: (val) => val.length <= 1 ? "Мінімальна кількість символів 2" : null,
+      surname: (val) => val.length <= 1 ? "Мінімальна кількість символів 2" : null,
+      email: (val) => {
+        if ([...val].length === 0) {
+          return "Будьласка введіть email"
+        }
+        if (/^\S+@\S+$/.test(val)) {
+          return null
+        } else {
+          return 'Будьласка введіть email коректний email'
+        }
+        return null
+      },
       password: (val) => {
         let allDownCase;
-        if (val.length <= 6) {
-          return 'Password should include at least 6 charactersss'
+        if (val.length <= 5) {
+          // return 'Password should include at least 6 characters'
+          return 'Мінімальна довжина паролю 6 символів'
         }
 
         [...val].map((ch) => {
@@ -22,6 +38,7 @@ export const UseUserForm = () => {
             allDownCase = true
           }
         })
+
         if (allDownCase) {
           return "Пароль повинен містити великі літери"
         }
@@ -29,10 +46,7 @@ export const UseUserForm = () => {
       },
     },
   });
-  return (
-    <div>
 
-    </div>
-  );
+  return form
 };
 

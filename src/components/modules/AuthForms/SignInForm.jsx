@@ -8,41 +8,43 @@ import PasswordField from "@/components/elements/FormFilds/PasswordField";
 
 import styles from '@/styles/auth/index.module.css'
 import {useForm} from "@mantine/form";
+import {useUserForm} from "@/hooks/useUserForm";
 
 const SignInForm = () => {
   const [spinner, setSpinner] = useState(false)
   const route = useRouter()
+  const form = useUserForm()
 
-  const form = useForm({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-
-    validate: {
-      email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Помилка у введенні'),
-      password: (val) => {
-        let allDownCase;
-        if (val.length <= 6) {
-          // return 'Password should include at least 6 characters'
-          return 'Мінімальна довжина паролю 6 символів'
-        }
-
-        [...val].map((ch) => {
-          if (ch === ch.toUpperCase()) {
-            allDownCase = false
-          } else {
-            allDownCase = true
-          }
-        })
-
-        if (allDownCase) {
-          return "Пароль повинен містити великі літери"
-        }
-        return null
-      },
-    },
-  });
+  // const form = useForm({
+  //   initialValues: {
+  //     email: '',
+  //     password: '',
+  //   },
+  //
+  //   validate: {
+  //     email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Помилка у введенні'),
+  //     password: (val) => {
+  //       let allDownCase;
+  //       if (val.length <= 6) {
+  //         // return 'Password should include at least 6 characters'
+  //         return 'Мінімальна довжина паролю 6 символів'
+  //       }
+  //
+  //       [...val].map((ch) => {
+  //         if (ch === ch.toUpperCase()) {
+  //           allDownCase = false
+  //         } else {
+  //           allDownCase = true
+  //         }
+  //       })
+  //
+  //       if (allDownCase) {
+  //         return "Пароль повинен містити великі літери"
+  //       }
+  //       return null
+  //     },
+  //   },
+  // });
 
   // const onSubmit = async (data) => {
   //   try {
@@ -71,7 +73,7 @@ const SignInForm = () => {
         })}
       >
         <Title order={2} className={`${styles.auth_form_title} text-center mb-[40px]`}>
-          Створення аккаунту
+          Авторизація
         </Title>
         <Stack mb="xl">
           <EmailField form={form}/>

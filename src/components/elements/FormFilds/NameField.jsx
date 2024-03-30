@@ -31,7 +31,7 @@ const NameField = ({form}) => (
     placeholder="Your name"
     value={form.values.name}
     onChange={(event) => form.setFieldValue('name', event.currentTarget.value)}
-    error={form.errors.name || "Помилка у даних"}
+    error={form.errors.name }
     radius="md"
   />
 )

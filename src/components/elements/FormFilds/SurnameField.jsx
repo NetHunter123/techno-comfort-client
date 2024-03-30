@@ -7,7 +7,7 @@ const SurnameField = ({form}) => (
     placeholder="Your surname"
     value={form.values.surname}
     onChange={(event) => form.setFieldValue('surname', event.currentTarget.value)}
-    error={form.errors.surname || "Помилка у даних"}
+    error={form.errors.surname }
     radius="md"
   />
 )
