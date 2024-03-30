@@ -31,17 +31,10 @@ export const useUserForm = () => {
           return 'Мінімальна довжина паролю 6 символів'
         }
 
-        [...val].map((ch) => {
-          if (ch === ch.toUpperCase()) {
-            allDownCase = false
-          } else {
-            allDownCase = true
-          }
-        })
-
-        if (allDownCase) {
+        if(!/[A-Z]/.test(val)){
           return "Пароль повинен містити великі літери"
         }
+
         return null
       },
     },

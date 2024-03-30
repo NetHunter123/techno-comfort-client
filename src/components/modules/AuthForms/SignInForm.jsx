@@ -1,75 +1,86 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
-// import { singInFx } from '../../../app/api/auth'
-// import { showAuthError } from '@/utils/errors'
 import {Button, Checkbox, Paper, Stack, Title} from "@mantine/core";
 import EmailField from "@/components/elements/FormFilds/EmailField";
 import PasswordField from "@/components/elements/FormFilds/PasswordField";
 
 import styles from '@/styles/auth/index.module.css'
-import {useForm} from "@mantine/form";
 import {useUserForm} from "@/hooks/useUserForm";
+import {signInFx} from "@/app/api/auth";
+import {toast} from "react-toastify";
+import {useForm} from "@mantine/form";
 
 const SignInForm = () => {
   const [spinner, setSpinner] = useState(false)
   const route = useRouter()
-  const form = useUserForm()
+  // const form = useUserForm()
 
-  // const form = useForm({
-  //   initialValues: {
-  //     email: '',
-  //     password: '',
-  //   },
-  //
-  //   validate: {
-  //     email: (val) => (/^\S+@\S+$/.test(val) ? null : 'Помилка у введенні'),
-  //     password: (val) => {
-  //       let allDownCase;
-  //       if (val.length <= 6) {
-  //         // return 'Password should include at least 6 characters'
-  //         return 'Мінімальна довжина паролю 6 символів'
-  //       }
-  //
-  //       [...val].map((ch) => {
-  //         if (ch === ch.toUpperCase()) {
-  //           allDownCase = false
-  //         } else {
-  //           allDownCase = true
-  //         }
-  //       })
-  //
-  //       if (allDownCase) {
-  //         return "Пароль повинен містити великі літери"
-  //       }
-  //       return null
-  //     },
-  //   },
-  // });
+  const form = useForm({
+    initialValues: {
+      email: '',
+      password: '',
+    },
 
-  // const onSubmit = async (data) => {
-  //   try {
-  //     setSpinner(true)
-  //     await singInFx({
-  //       url: '/users/login',
-  //       username: data.name,
-  //       password: data.password,
-  //     })
-  //
-  //     resetField('name')
-  //     resetField('password')
-  //     route.push('/dashboard')
-  //   } catch (error) {
-  //     showAuthError(error)
-  //   } finally {
-  //     setSpinner(false)
-  //   }
-  // }
+    validate: {
+      email: (val) => {
+        if ([...val].length === 0) {
+          return "Будьласка введіть email"
+        }
+        if (/^\S+@\S+$/.test(val)) {
+          return null
+        } else {
+          return 'Будьласка введіть email коректний email'
+        }
+        return null
+      },
+      password: (val) => {
+        let allDownCase;
+        if (val.length <= 5) {
+          // return 'Password should include at least 6 characters'
+          return 'Мінімальна довжина паролю 6 символів'
+        }
+
+        if(!/[A-Z]/.test(val)){
+          return "Пароль повинен містити великі літери"
+        }
+
+        return null
+      },
+    },
+  });
+
+
+  const onSubmit = async (data) => {
+    console.log("login")
+    try {
+      setSpinner(true)
+      const userData = await signInFx({
+        url: '/users/login',
+        email: data.email,
+        password: data.password,
+      })
+      console.log("reg_userData:", userData)
+      if (!userData) {
+        return
+      }
+
+      form.setFieldValue('email', "")
+      form.setFieldValue('password', "")
+    } catch (error) {
+      console.log(error)
+      toast.error(error.response.data.message)
+    } finally {
+      setSpinner(false)
+    }
+  }
+
 
   return (
     <Paper className={`${styles.auth_form}  h-fit `}
            shadow="md" radius="lg" withBorder>
       <form noValidate
         onSubmit={form.onSubmit((values, event) => {
+          onSubmit(values)
         })}
       >
         <Title order={2} className={`${styles.auth_form_title} text-center mb-[40px]`}>

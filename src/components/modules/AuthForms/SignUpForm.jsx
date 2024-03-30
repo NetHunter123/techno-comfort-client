@@ -20,6 +20,7 @@ import {Checkbox, Stack, Button, Paper, Title} from "@mantine/core";
 import styles from '@/styles/auth/index.module.css'
 import {useUserForm} from "@/hooks/useUserForm";
 import {toast} from "react-toastify";
+import {signUpFx} from "@/app/api/auth";
 
 
 const SignUpForm = ({switchForm}) => {
@@ -27,20 +28,19 @@ const SignUpForm = ({switchForm}) => {
   const form = useUserForm()
 
   const onSubmit = async (data) => {
-    toast("O Kurwa !")
     try {
       setSpinner(true)
-      // const userData = await singUpFx({
-      //   url: '/users/signup',
-      //   name: data.name,
-      //   surname: data.surname,
-      //   password: data.password,
-      //   email: data.email,
-      // })
-      // console.log("reg_userData:", userData)
-      // if (!userData) {
-      //   return
-      // }
+      const userData = await signUpFx({
+        url: '/users/signup',
+        name: data.name,
+        surname: data.surname,
+        password: data.password,
+        email: data.email,
+      })
+      console.log("reg_userData:", userData)
+      if (!userData) {
+        return
+      }
 
       form.setFieldValue('name', "")
       form.setFieldValue('surname', "")
@@ -49,7 +49,7 @@ const SignUpForm = ({switchForm}) => {
       form.setFieldValue('terms', false)
       switchForm()
     } catch (error) {
-      showAuthError(error)
+      toast.error(error.response.data.message)
     } finally {
       setSpinner(false)
     }
