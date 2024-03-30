@@ -28,6 +28,7 @@ const SignUpForm = ({switchForm}) => {
   const form = useUserForm()
 
   const onSubmit = async (data) => {
+    console.log("reg")
     try {
       setSpinner(true)
       const userData = await signUpFx({
@@ -49,6 +50,7 @@ const SignUpForm = ({switchForm}) => {
       form.setFieldValue('terms', false)
       switchForm()
     } catch (error) {
+      console.log("Something went wrong - error:", error)
       toast.error(error.response?.data.message || "Щось пішло не так")
     } finally {
       setSpinner(false)

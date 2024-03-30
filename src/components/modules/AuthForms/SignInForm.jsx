@@ -59,7 +59,7 @@ const SignInForm = () => {
         email: data.email,
         password: data.password,
       })
-      console.log("reg_userData:", userData)
+      console.log("log_userData:", userData)
       if (!userData) {
         return
       }
@@ -68,6 +68,7 @@ const SignInForm = () => {
       form.setFieldValue('password', "")
     } catch (error) {
       console.log(error)
+      console.log("Something went wrong - error:", error)
       toast.error(error.response?.data.message || "Щось пішло не так")
     } finally {
       setSpinner(false)

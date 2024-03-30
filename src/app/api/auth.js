@@ -3,9 +3,9 @@ import {toast} from "react-toastify";
 import {createEffect} from "effector";
 
 export const signUpFx = createEffect(async ({url, name, surname, password, email}) => {
-  const {data} = await api.post(url, {name, surname, email, password})
   console.log("inputed", {url, name, surname, password, email})
-
+  const {data} = await api.post(url, {name, surname, email, password})
+  console.log("signUpFx fetched data",data)
   if (data.warningMessage) {
     toast.error(data.warningMessage)
   }
@@ -17,6 +17,7 @@ export const signUpFx = createEffect(async ({url, name, surname, password, email
 export const signInFx = createEffect(async ({url, password, email}) => {
   console.log("inputed", {url, password, email})
   const {data} = await api.post(url, {email, password})
+  console.log("signInFx fetched data",data)
   if (data.warningMessage) {
     toast.error(data.warningMessage && "Не вірні дані!")
   }
