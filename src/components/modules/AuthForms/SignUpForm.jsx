@@ -49,7 +49,7 @@ const SignUpForm = ({switchForm}) => {
       form.setFieldValue('terms', false)
       switchForm()
     } catch (error) {
-      toast.error(error.response.data.message)
+      toast.error(error.response.data.message || "Щось пішло не так")
     } finally {
       setSpinner(false)
     }
