@@ -30,18 +30,21 @@ const SignUpForm = ({switchForm}) => {
       setSpinner(true)
       const userData = await singUpFx({
         url: '/users/signup',
-        username: data.name,
+        name: data.name,
+        surname: data.surname,
         password: data.password,
         email: data.email,
       })
-
+      console.log("reg_userData:", userData)
       if (!userData) {
         return
       }
 
-      resetField('email')
-      resetField('name')
-      resetField('password')
+      form.setFieldValue('name', "")
+      form.setFieldValue('surname', "")
+      form.setFieldValue('email', "")
+      form.setFieldValue('password', "")
+      form.setFieldValue('terms', false)
       switchForm()
     } catch (error) {
       showAuthError(error)
@@ -55,7 +58,8 @@ const SignUpForm = ({switchForm}) => {
            shadow="md" radius="lg" withBorder>
       <form noValidate
             onSubmit={form.onSubmit((values, event) => {
-        })}
+              onSubmit(values)
+            })}
       >
         <Title order={2} className={`${styles.auth_form_title} text-center mb-[40px]`}>
           Створення аккаунту
