@@ -68,7 +68,7 @@ const SignInForm = () => {
   return (
     <Paper className={`${styles.auth_form}  h-fit `}
            shadow="md" radius="lg" withBorder>
-      <form
+      <form noValidate
         onSubmit={form.onSubmit((values, event) => {
         })}
       >
