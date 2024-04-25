@@ -1,15 +1,3 @@
-// import { useForm } from 'react-hook-form'
-// import { useState } from 'react'
-// import { useStore } from 'effector-react'
-// import NameInput from '@/components/elements/AuthForms/NameField'
-// import { IInputs } from '@/types/auth'
-// import { $mode } from '@/context/mode'
-// import EmailField from '@/components/elements/AuthForms/EmailField'
-// import PasswordInput from '@/components/elements/AuthForms/PasswordInput'
-// import { singUpFx } from '@/app/api/auth'
-// import { showAuthError } from '@/utils/errors'
-// import spinnerStyles from '@/styles/spinner/index.module.scss'
-
 import {useState} from "react";
 import {useForm} from "@mantine/form";
 import NameField from "@/components/elements/FormFilds/NameField";
@@ -17,10 +5,10 @@ import SurnameField from "@/components/elements/FormFilds/SurnameField";
 import EmailField from "@/components/elements/FormFilds/EmailField";
 import PasswordField from "@/components/elements/FormFilds/PasswordField";
 import {Checkbox, Stack, Button, Paper, Title} from "@mantine/core";
-import styles from '@/styles/auth/index.module.css'
 import {useUserForm} from "@/hooks/useUserForm";
 import {toast} from "react-toastify";
 import {signUpFx} from "@/app/api/auth";
+import styles from './auth.module.css'
 
 
 const SignUpForm = ({switchForm}) => {

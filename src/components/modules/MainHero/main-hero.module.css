@@ -1,0 +1,109 @@
+.mainHero {
+    &__root {
+        margin-bottom: 30px;
+        flex: 1;
+        width: 100%;
+    }
+
+    &__slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        min-height: 550px;
+        height: 60vh;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: var(--m-accent-400);
+
+        @media screen and (max-width: 950px) {
+
+        }
+        @media screen and (max-width: 654px) {
+
+        }
+    }
+
+    &__wrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        flex-direction: column;
+        max-width: 654px;
+        background-color: rgba(0, 0, 0, 65%);
+        padding: 20px;
+
+        &:after,
+        &:before {
+            position: absolute;
+            content: " ";
+            height: 3px;
+            width: 60px;
+            background-color: var(--m-accent-400);
+        }
+
+        &:after {
+            left: 0;
+            top: 0;
+        }
+
+        &:before {
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    &__inner {
+        &:after,
+        &:before {
+            position: absolute;
+            content: " ";
+            width: 8px;
+            height: 60px;
+            background-color: var(--m-accent-400);
+        }
+
+        &:after {
+            left: 0;
+            top: 0;
+        }
+
+        &:before {
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    &__title {
+        font-size: 40px;
+        margin-bottom: 20px;
+        @media screen and (max-width: 1150px) {
+            font-size: 38px;
+        }
+        @media screen and (max-width: 950px) {
+
+        }
+        @media screen and (max-width: 654px) {
+            font-size: 28px;
+        }
+    }
+
+
+    &__desc {
+        font-size: 20px;
+        width: 100%;
+        letter-spacing: .03em;
+        text-align: right;
+        @media screen and (max-width: 950px) {
+
+        }
+        @media screen and (max-width: 654px) {
+
+        }
+    }
+
+}

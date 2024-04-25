@@ -1,0 +1,52 @@
+:root {
+    color-scheme: normal;
+    --header-h: 85px;
+    --navbar-width: 300px;
+
+    @media screen and (max-width: 1200px) {
+        --navbar-width: 200px;
+    }
+    @media screen and (max-width: 992px) {
+        --navbar-width: 150px;
+    }
+    @media screen and (max-width: 768px) {
+        --navbar-width: 50px;
+    }
+    /*--------------Breakpoints----------------*/
+    --m-xs: 0;
+    --m-sm: 576px;
+    --m-md: 768px;
+    --m-lg: 992px;
+    --m-xl: 1200px;
+    /*--------------Breakpoints----------------*/
+
+    /*--------------Embla Carousel----------------*/
+    --arrow-w-size-c: 50px;
+    --arrow-h-size-c: 40px;
+    --arrow-bgc-c: var(--m-accent-200);
+
+    --dots-size-c: 20px;
+    --dots-bgc-c: var(--m-accent-200);
+    /*--------------Embla Carousel----------------*/
+    /*--------------------Основна----------------------*/
+    --m-primary-100: #B29A00B2;
+    --m-primary-200: #968314;
+    --m-primary-300: #b29a00;
+
+    --main-borders: #968314;
+    --orange: #ffbf00;
+
+    --m-accent-100: #e0c000;
+    --m-accent-200: #fedc00;
+    --m-accent-300: #ffee80;
+    --m-accent-400: #fff7bf;
+
+    --m-text-white: #ffffff;
+    --m-text-200: #cecece;
+
+    --m-bg-100: #1D1F21;
+    --m-bg-200: #2c2e30;
+    --m-bg-300: #444648;
+    /*------------------------------------------*/
+
+}

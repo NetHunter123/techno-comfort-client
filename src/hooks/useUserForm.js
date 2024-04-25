@@ -14,6 +14,7 @@ export const useUserForm = () => {
       name: (val) => val.length <= 1 ? "Мінімальна кількість символів 2" : null,
       surname: (val) => val.length <= 1 ? "Мінімальна кількість символів 2" : null,
       email: (val) => {
+				
         if ([...val].length === 0) {
           return "Будьласка введіть email"
         }

@@ -1,0 +1,7 @@
+.products{
+    &__wapper{
+        background-color: var(--m-bg-200);
+        padding: 10px 10px;
+        border-radius: 25px;
+    }
+}

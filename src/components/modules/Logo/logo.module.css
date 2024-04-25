@@ -1,0 +1,17 @@
+.logo{
+    &__root{
+        text-align: center;
+        max-width:fit-content ;
+        text-transform:uppercase;
+    }
+    &__name{
+        border: 2px solid var(--m-accent-400);
+        color: var(--m-accent-200);
+        font-size: 24px;
+        padding: 2px 12px;
+    }
+    &__motto{
+        color: var(--m-accent-400);
+        font-size: 14px;
+    }
+}

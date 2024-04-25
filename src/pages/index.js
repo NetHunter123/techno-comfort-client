@@ -1,12 +1,13 @@
-import AuthPage from "@/components/templates/AuthPage/AuthPage";
+import React from "react";
+import MainHero from "@/components/modules/MainHero/MainHero";
+import HomePage from "@/components/templates/HomePage/HomePage";
 
-
-export default function Home() {
-  return (
-    <main
-      className={``}
-    >
-      <AuthPage/>
-    </main>
-  )
+function Home() {
+	return (
+		<>
+			<HomePage/>
+		</>
+	)
 }
+
+export default Home

@@ -1,4 +1,3 @@
-// import React, {useRef} from 'react';
 import {useMediaQuery} from "@/hooks/useMediaQuery";
 import {useRef} from "react";
 import {Button} from "@mantine/core";
@@ -6,9 +5,8 @@ import {FiLogIn, FiUserPlus} from "react-icons/fi";
 import SignUpForm from "@/components/modules/AuthForms/SignUpForm";
 import SignInForm from "@/components/modules/AuthForms/SignInForm";
 
-
 import bgImg from "@/../public/forest-unsplash.jpg"
-import styles from '@/styles/auth/index.module.css'
+import styles from '@/components/modules/AuthForms/auth.module.css'
 
 const AuthPage = () => {
   const isMedia800 = useMediaQuery(800)
@@ -19,9 +17,6 @@ const AuthPage = () => {
   const switchCircle2 = useRef()
   const aContainer = useRef()
   const bContainer = useRef()
-  // const mode = useStore($mode)
-  // const darkModeClass = mode === 'dark' ? `${styles.dark_mode}` : ''
-
 
   const switchForm = () => {
     switchCtn.current.classList.add(styles.is_gx)
@@ -44,7 +39,7 @@ const AuthPage = () => {
 
   return (
     <>
-      <div className={`${styles.auth} h-screen bg-[white]`} style={{
+      <div className={`${styles.auth} `} style={{
         backgroundImage: `url(${bgImg.src})`
       }}>
 

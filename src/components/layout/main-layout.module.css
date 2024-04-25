@@ -1,0 +1,32 @@
+.layout {
+    &__root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header {
+    }
+
+    &__wrap {
+        display: flex;
+        max-width: 100vw;
+        width: 100%;
+        min-height: 100%;
+        flex: 1 0 auto;
+    }
+
+    &__aside {
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        max-width: calc(100% - var(--navbar-width));
+        width: 100%;
+        min-height: 100%;
+        padding: 10px;
+    }
+}
+
+

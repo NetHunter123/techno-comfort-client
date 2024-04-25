@@ -3,12 +3,11 @@ import { useRouter } from 'next/router'
 import {Button, Checkbox, Paper, Stack, Title} from "@mantine/core";
 import EmailField from "@/components/elements/FormFilds/EmailField";
 import PasswordField from "@/components/elements/FormFilds/PasswordField";
-
-import styles from '@/styles/auth/index.module.css'
 import {useUserForm} from "@/hooks/useUserForm";
 import {signInFx} from "@/app/api/auth";
 import {toast} from "react-toastify";
 import {useForm} from "@mantine/form";
+import styles from './auth.module.css'
 
 const SignInForm = () => {
   const [spinner, setSpinner] = useState(false)
@@ -77,14 +76,14 @@ const SignInForm = () => {
 
 
   return (
-    <Paper className={`${styles.auth_form}  h-fit `}
+    <Paper className={`${styles.auth_form} `}
            shadow="md" radius="lg" withBorder>
       <form noValidate
         onSubmit={form.onSubmit((values, event) => {
           onSubmit(values)
         })}
       >
-        <Title order={2} className={`${styles.auth_form_title} text-center mb-[40px]`}>
+        <Title order={2} className={`${styles.auth_form_title} `}>
           Авторизація
         </Title>
         <Stack mb="xl">

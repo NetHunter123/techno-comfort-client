@@ -1,0 +1,39 @@
+.main_hero_carousel__root {
+    width: 100%;
+
+    .embla__controls {
+    }
+
+    .embla__buttons {
+        display: flex;
+        justify-content: center;
+        left: 0;
+        right: 0;
+        bottom: 20px;
+        @media screen and (max-width: 950px) {
+            //bottom: 20px;
+        }
+        @media screen and (max-width: 654px) {
+            //left: 20px;
+        }
+    }
+
+    .embla__dots {
+
+    }
+
+    .embla__dot {
+
+    }
+
+    .embla__dot:after {
+
+    }
+
+    .embla__dot--selected:after {
+    }
+
+}
+
+
+

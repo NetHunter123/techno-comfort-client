@@ -59,10 +59,13 @@ $bgc-form-shadow: rgb(24,24,16);
 }
 
 .auth {
+    height: 100vh;
+    background-color: #fff;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color: var(--yellow-light);
+    color: var(--m-accent-400);
+
 
     &__side {
         display: flex;
@@ -142,8 +145,7 @@ $bgc-form-shadow: rgb(24,24,16);
 
             @media (max-width: 800px) {
                 padding: 0;
-            //width: auto;
-            }
+                        }
         }
 
         &_title {
@@ -217,6 +219,7 @@ $bgc-form-shadow: rgb(24,24,16);
         border: 1px solid var(--main-borders);
         width: 100%;
         padding: 45px 30px 65px;
+        //height:fit-content;
 
         @media (max-width: 500px) {
             padding: 45px 15px 65px;
@@ -229,6 +232,8 @@ $bgc-form-shadow: rgb(24,24,16);
         background-color: $bgc-form;
 
         &_title {
+            text-align: center;
+            margin-bottom: 40px;
             @media screen and (max-width: 769px) {
                 font-size: 22px;
             }
@@ -245,7 +250,7 @@ $bgc-form-shadow: rgb(24,24,16);
     font-size: 34px;
     font-weight: 700;
     margin-bottom: 20px;
-    color: var(--yellow-light);
+    color: var(--m-accent-400);
 
     @media (max-width: 430px) {
         font-size: 26px;
@@ -343,7 +348,6 @@ $bgc-form-shadow: rgb(24,24,16);
     }
 
     @media (max-width: 375px) {
-    //max-width: fit-content;
         left: 0%;
     }
 }

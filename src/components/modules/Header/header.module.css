@@ -1,0 +1,21 @@
+.header{
+    &__wrap{
+        min-height: var(--header-h);
+    }
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: var(--header-h);
+    background-color: var(--m-bg-200);
+    padding: 12px var(--mantine-spacing-md);
+    border-bottom: 1px solid var(--main-borders);
+    width: 100%;
+    z-index: 10;
+
+    &__logo{
+        display: flex;
+        justify-content: center;
+        max-width: 268px;
+    }
+}
