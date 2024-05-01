@@ -6,18 +6,18 @@ import styles from './footer.module.css'
 const Footer = () => {
 	return (
 		<footer className={`${styles.footer__root} section-c container-c`}>
-			{/*<Divider className={styles.footer__divider_hidden} orientation="vertical" color={"black"}/>*/}
-			<div className={styles.footer__socials}>
-				socials
+			<div className={styles.footer__inner}>
+				<div className={styles.footer__socials}>
+					socials
+				</div>
+				
+				<Divider className={styles.footer__divider} orientation="vertical" color={'var(--m-accent-400)'}/>
+				
+				<div className={styles.footer__logo}>
+					<Logo/>
+				</div>
+			
 			</div>
-			
-				<Divider className={styles.footer__divider_1} orientation="vertical" color={"black"}/>
-			
-			<div className={styles.footer__logo}>
-				<Logo/>
-			</div>
-			
-				<Divider className={styles.footer__divider_2} orientation="vertical" color={"black"}/>
 			
 			<p className={styles.footer__all_right}>
 				© {new Date().getFullYear()} TechnoComfort - online-store. All right reserved.

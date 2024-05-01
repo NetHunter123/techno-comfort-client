@@ -11,7 +11,7 @@
     padding: 12px var(--mantine-spacing-md);
     border-bottom: 1px solid var(--main-borders);
     width: 100%;
-    z-index: 10;
+    z-index: 100;
 
     &__logo{
         display: flex;

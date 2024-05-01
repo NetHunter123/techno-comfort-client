@@ -1,0 +1,17 @@
+.tags_bar {
+
+    &__wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+}
+.tag {
+    &_bestseller{}
+    &_new{}
+}

@@ -7,19 +7,40 @@ import ProductsSlider from "@/components/modules/ProductsSlider/ProductsSlider";
 import MainSlick from "@/components/modules/MainHero/MainSlick";
 
 const HomePage = () => {
-	const [newProducts, setNewProducts] = useState([])
-	const [newBestseller, setBestseller] = useState([])
+	// const [newProducts, setNewProducts] = useState([])
+	// const [newBestseller, setBestseller] = useState([])
+	//
+	// const loadProducts = async () => {
+	// 	try {
+	// 		const newProducts = await getBestsellersOrNewProductsFx("/products/new")
+	// 		const bestsellers = await getBestsellersOrNewProductsFx("/products/bestsellers")
+	// 		setNewProducts(newProducts)
+	// 		setBestseller(bestsellers)
+	//
+	// 	} catch (error) {
+	// 		console.log(error)
+	// 		toast.error(error.message)
+	// 	}
+	// }
+	//
+	// useEffect(() => {
+	// 	loadProducts()
+	// }, []);
+	
+	const [loading, setLoading] = useState(true)
+	const [productsOffer, setProductsOffer] = useState([ ])
 	
 	const loadProducts = async () => {
 		try {
-			const newProducts = await getBestsellersOrNewProductsFx("/products/new")
-			const bestsellers = await getBestsellersOrNewProductsFx("/products/bestsellers")
-			setNewProducts(newProducts)
-			setBestseller(bestsellers)
+			setLoading(true)
+			const products = await getBestsellersOrNewProductsFx(`/products/new`)
+			setProductsOffer(products.rows)
 			
 		} catch (error) {
 			console.log(error)
 			toast.error(error.message)
+		} finally {
+			setLoading(false)
 		}
 	}
 	
@@ -27,12 +48,13 @@ const HomePage = () => {
 		loadProducts()
 	}, []);
 	
-	console.log(newProducts)
+	
 	return (
 		<>
 			{/*<MainSlick/>*/}
 			<MainHero/>
-			<ProductsSlider/>
+			<ProductsSlider title={"Хіт продаж"} offerSrc={"/products/bestsellers"}/>
+			<ProductsSlider title={"Новинки"} offerSrc={"/products/new"}/>
 		</>
 	);
 };

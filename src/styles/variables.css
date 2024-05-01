@@ -12,6 +12,18 @@
     @media screen and (max-width: 768px) {
         --navbar-width: 50px;
     }
+
+    /*--navbar-width: 50px;
+
+    @media screen and (min-width: 768px) {
+        --navbar-width: 150px;
+    }
+    @media screen and (min-width: 992px) {
+        --navbar-width: 200px;
+    }
+    @media screen and (min-width: 1200px) {
+        --navbar-width: 300px;
+    }*/
     /*--------------Breakpoints----------------*/
     --m-xs: 0;
     --m-sm: 576px;

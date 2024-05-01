@@ -6,6 +6,7 @@
     }
 
     &__header {
+
     }
 
     &__wrap {
@@ -22,10 +23,15 @@
     &__content {
         display: flex;
         flex-direction: column;
-        max-width: calc(100% - var(--navbar-width));
-        width: 100%;
+        margin-left: auto;
+        /*max-width: calc(100% - var(--navbar-width));*/
+        gap: 20px;
+        width: 100% ;
+        overflow: hidden;
         min-height: 100%;
         padding: 10px;
+        transition: width 0.3s ease-in-out, max-width 0.3s ease-in-out;
+
     }
 }
 

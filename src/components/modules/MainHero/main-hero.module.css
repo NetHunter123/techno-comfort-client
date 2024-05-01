@@ -1,6 +1,5 @@
 .mainHero {
     &__root {
-        margin-bottom: 30px;
         flex: 1;
         width: 100%;
     }

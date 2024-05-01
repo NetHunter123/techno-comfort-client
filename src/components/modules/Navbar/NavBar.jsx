@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import Link from "next/link";
 import {AiOutlineHome} from "react-icons/ai";
 import {BiCategoryAlt} from "react-icons/bi";
@@ -10,6 +10,9 @@ import {HiOutlineSwitchHorizontal} from "react-icons/hi";
 import {LuLogOut} from "react-icons/lu";
 import styles from './navbar.module.css';
 import {useRouter} from "next/router";
+import {IoIosArrowBack} from "react-icons/io";
+import {IoMdArrowDropleft} from "react-icons/io";
+import {useMediaQuery} from "@mantine/hooks";
 
 const menu = [
 	{label: "Головна", link: "/", icon: AiOutlineHome},
@@ -21,11 +24,21 @@ const menu = [
 ]
 
 export function Navbar() {
+	const isMedia567 = useMediaQuery( '(min-width: 567px)')
 	const [active, setActive] = useState('/');
+	const [miniMobMenu, setMiniMobMenu] = useState(false);
 	const router = useRouter()
+	const asideWidthRef = useRef(null);
 	
+	const openMiniMenu = () => {
+		// if (!miniMobMenu) {
+		// 	document.documentElement.style.setProperty("--navbar-width", "0px");
+		// } else {
+		// 	document.documentElement.style.setProperty("--navbar-width", "50px");
+		// }
+		setMiniMobMenu(prevCount => !prevCount)
+	}
 	const isActive = (href) => router.pathname === href
-	
 	const links = menu.map((item) => (
 		<li key={item.label}>
 			<Link
@@ -44,10 +57,9 @@ export function Navbar() {
 	));
 	
 	return (
-		<div className={styles.navbar__wrap}>
+		<div ref={asideWidthRef} className={`${styles.navbar__wrap} ${miniMobMenu && !isMedia567 ? styles.navbar__mini_mob_close : ""}`}>
 			<nav className={`${styles.navbar}`}>
-				<div className={`${styles.navbarMain} h-[100%]`}>
-					{/*<Logo/>*/}
+				<div className={`${styles.navbarMain}`}>
 					<ul className={`${styles.links_wrap} `}>
 						{links}
 					</ul>
@@ -64,6 +76,10 @@ export function Navbar() {
 						<span>Logout</span>
 					</Link>
 				</div>
+				<button onClick={openMiniMenu} className={styles.navbar__btn_mini_menu}>
+					{/*<IoIosArrowBack/>*/}
+					<IoMdArrowDropleft/>
+				</button>
 			</nav>
 		</div>
 	);

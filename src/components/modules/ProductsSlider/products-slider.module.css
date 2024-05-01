@@ -1,7 +1,18 @@
-.products{
-    &__wapper{
-        background-color: var(--m-bg-200);
-        padding: 10px 10px;
-        border-radius: 25px;
+.products {
+    background-color: var(--m-bg-200);
+    border-radius: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &__sceleton {
+        max-width: 250px;
+        min-height: 350px;
+        width: 100%;
+    }
+    &__wapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
     }
 }
