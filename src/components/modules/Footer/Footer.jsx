@@ -2,13 +2,14 @@ import React from 'react';
 import Logo from "@/components/modules/Logo/Logo";
 import {Divider} from "@mantine/core";
 import styles from './footer.module.css'
+import Socials from "@/components/modules/Socials/Socials";
 
 const Footer = () => {
 	return (
 		<footer className={`${styles.footer__root} section-c container-c`}>
 			<div className={styles.footer__inner}>
 				<div className={styles.footer__socials}>
-					socials
+					<Socials/>
 				</div>
 				
 				<Divider className={styles.footer__divider} orientation="vertical" color={'var(--m-accent-400)'}/>

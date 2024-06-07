@@ -1,7 +1,7 @@
 :root {
     color-scheme: normal;
     --header-h: 85px;
-    --navbar-width: 300px;
+    --navbar-width: 200px;
 
     @media screen and (max-width: 1200px) {
         --navbar-width: 200px;

@@ -1,15 +1,22 @@
 .header{
+    --m-max-width:1600px;
     &__wrap{
+        position: relative;
         min-height: var(--header-h);
+        max-width: var(--m-max-width);
     }
+
+    max-width: calc(var(--m-max-width) - 10px);
     position: fixed;
     display: flex;
-    flex-direction: column;
+    //flex-direction: column;
     justify-content: center;
+    align-items: center;
     min-height: var(--header-h);
     background-color: var(--m-bg-200);
     padding: 12px var(--mantine-spacing-md);
     border-bottom: 1px solid var(--main-borders);
+    flex-wrap: nowrap;
     width: 100%;
     z-index: 100;
 
@@ -17,5 +24,18 @@
         display: flex;
         justify-content: center;
         max-width: 268px;
+        width: 100%;
+
+        @media (max-width: 426px) {
+            max-width: fit-content;
+        }
+    }
+
+    &__control{
+        display: flex;
+        gap: 20px;
+        max-width: fit-content;
+        width: 100%;
+        margin-left: auto;
     }
 }

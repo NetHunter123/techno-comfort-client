@@ -1,0 +1,12 @@
+.account {
+    &__avatar {
+        height: 40px;
+        width: 40px;
+        border-radius: 8px;
+        background-color: var(--m-primary-100);
+
+        svg {
+            color: var(--m-accent-400);
+        }
+    }
+}

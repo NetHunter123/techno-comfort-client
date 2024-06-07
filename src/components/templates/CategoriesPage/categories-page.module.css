@@ -1,0 +1,28 @@
+.categories {
+    &__root {
+        background-color: var(--m-bg-200);
+        border-radius: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 100%;
+    }
+
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 20px;
+        align-items: center;
+    }
+
+    &__sceleton{
+        width: 100%;
+        height: 150px;
+    }
+
+    &__err_txt{
+        width: 100%;
+        text-align: center;
+    }
+}
+

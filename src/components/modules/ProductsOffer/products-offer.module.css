@@ -1,6 +1,6 @@
 .products {
     background-color: var(--m-bg-200);
-    border-radius: 25px;
+    border-radius: 15px;
     padding-left: 10px;
     padding-right: 10px;
 
@@ -14,5 +14,8 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 20px;
+
+        @media (max-width: 1030px) {
+            gap: 10px;        }
     }
 }

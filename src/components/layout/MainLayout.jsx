@@ -4,11 +4,13 @@ import {Button, MantineProvider} from "@mantine/core";
 import {useRouter} from "next/router";
 import {EffectorNext} from "@effector/next";
 import Footer from "@/components/modules/Footer/Footer";
+import NextNProgress from 'nextjs-progressbar';
 import styles from './main-layout.module.css'
+import {ToastContainer} from "react-toastify";
 
 const MainLayout = ({children, pageProps}) => {
 	const router = useRouter()
-
+	
 	const activeLayout = router.pathname !== "/auth"
 	console.log(activeLayout)
 	return (<>
@@ -18,7 +20,9 @@ const MainLayout = ({children, pageProps}) => {
 				withNormalizeCSS
 				defaultColorScheme="dark"
 			>
+				<NextNProgress color="var(--m-accent-400)"/>
 				{activeLayout ? <div className={styles.layout__root}>
+						
 						<Header/>
 						<div className={styles.layout__wrap}>
 							<aside className={styles.layout__aside}>
@@ -26,12 +30,13 @@ const MainLayout = ({children, pageProps}) => {
 							</aside>
 							<main className={styles.layout__content}>
 								{children}
-						<Footer/>
+								<Footer/>
 							</main>
 						</div>
 					</div>
 					: <main>{children}</main>
 				}
+				<ToastContainer/>
 			</MantineProvider>
 		</EffectorNext>
 	</>)

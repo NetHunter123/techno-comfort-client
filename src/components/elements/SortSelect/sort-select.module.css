@@ -1,0 +1,18 @@
+.select {
+    max-width: 232px;
+    width: 100%;
+    color: var(--m-accent-400);
+
+    & input {
+        color: var(--m-accent-400);
+        border: 1px solid var(--main-borders);
+    }
+
+    &__option{
+        padding: 30px !important;
+    }
+}
+
+.mantine-Select-dropdown{
+    visibility: hidden;
+}

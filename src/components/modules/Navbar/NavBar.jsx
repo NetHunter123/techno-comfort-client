@@ -16,7 +16,7 @@ import {useMediaQuery} from "@mantine/hooks";
 
 const menu = [
 	{label: "Головна", link: "/", icon: AiOutlineHome},
-	{label: "Категорії", link: "/category", icon: BiCategoryAlt},
+	{label: "Каталог товарів", link: "/categories", icon: BiCategoryAlt},
 	{label: "Про Нас", link: "/about-us", icon: FaPeopleRoof},
 	{label: "Контакти", link: "/contacts", icon: MdOutlineContacts},
 	{label: "Доставка та оплата", link: "/delivery-payment", icon: LiaShippingFastSolid},
@@ -31,11 +31,6 @@ export function Navbar() {
 	const asideWidthRef = useRef(null);
 	
 	const openMiniMenu = () => {
-		// if (!miniMobMenu) {
-		// 	document.documentElement.style.setProperty("--navbar-width", "0px");
-		// } else {
-		// 	document.documentElement.style.setProperty("--navbar-width", "50px");
-		// }
 		setMiniMobMenu(prevCount => !prevCount)
 	}
 	const isActive = (href) => router.pathname === href
@@ -65,19 +60,7 @@ export function Navbar() {
 					</ul>
 				</div>
 				
-				<div className={`${styles.footer} mt-auto`}>
-					<Link href="#" className={styles.link} onClick={(event) => event.preventDefault()}>
-						<HiOutlineSwitchHorizontal className={styles.linkIcon}/>
-						<span>Change account</span>
-					</Link>
-					
-					<Link href="#" className={styles.link} onClick={(event) => event.preventDefault()}>
-						<LuLogOut className={styles.linkIcon}/>
-						<span>Logout</span>
-					</Link>
-				</div>
 				<button onClick={openMiniMenu} className={styles.navbar__btn_mini_menu}>
-					{/*<IoIosArrowBack/>*/}
 					<IoMdArrowDropleft/>
 				</button>
 			</nav>
