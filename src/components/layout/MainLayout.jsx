@@ -7,12 +7,15 @@ import Footer from "@/components/modules/Footer/Footer";
 import NextNProgress from 'nextjs-progressbar';
 import styles from './main-layout.module.css'
 import {ToastContainer} from "react-toastify";
+import {useUnit} from "effector-react";
+import {setUser} from "@/context/user";
+import {checkAuthFx} from "@/app/api/auth";
+import {useEffect} from "react";
 
 const MainLayout = ({children, pageProps}) => {
 	const router = useRouter()
 	
 	const activeLayout = router.pathname !== "/auth"
-	console.log(activeLayout)
 	return (<>
 		<EffectorNext values={pageProps?.values}>
 			<MantineProvider
@@ -41,5 +44,6 @@ const MainLayout = ({children, pageProps}) => {
 		</EffectorNext>
 	</>)
 }
+
 
 export default MainLayout

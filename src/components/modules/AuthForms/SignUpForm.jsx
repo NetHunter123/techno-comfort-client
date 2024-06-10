@@ -61,14 +61,14 @@ const SignUpForm = ({switchForm}) => {
           <SurnameField form={form}/>
           <EmailField form={form}/>
           <PasswordField form={form}/>
-          <Checkbox
-            color="yellow"
-            variant="outline"
-
-            label="I accept terms and conditions"
-            checked={form.values.terms}
-            onChange={(event) => form.setFieldValue('terms', event.currentTarget.checked)}
-          />
+          {/*<Checkbox*/}
+          {/*  color="yellow"*/}
+          {/*  variant="outline"*/}
+					
+          {/*  label="I accept terms and conditions"*/}
+          {/*  checked={form.values.terms}*/}
+          {/*  onChange={(event) => form.setFieldValue('terms', event.currentTarget.checked)}*/}
+          {/*/>*/}
         </Stack>
 
         <Button
@@ -79,7 +79,7 @@ const SignUpForm = ({switchForm}) => {
           gradient={{from: 'yellow', to: 'orange', deg: 90}}
           fullWidth size="md"
           autoContrast
-          disabled={!form.values.terms}
+          // disabled={!form.values.terms}
         >
           Зареєструватися
         </Button>

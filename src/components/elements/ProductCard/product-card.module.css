@@ -18,12 +18,16 @@
         margin: 30px auto;
     }*/
 
+
+
     &:hover {
         .product_card__btn {
             &:before,
             &:after {
                 left: 0px;
             }
+
+
         }
 
         & .product_card__price {
@@ -147,6 +151,10 @@
         height: 60px;
         position: relative;
         overflow: hidden;
+        transition: scale 0.2s linear;
+        &:active {
+            scale: 0.95;
+        }
 
         &:before,
         &:after {
@@ -209,12 +217,13 @@
         display: block;
         position: absolute;
         top: 50%;
-        left: 120%;
+        left: 86%;
         transform: translate(-50%, -50%);
 
         & span {
             /*font-size: 14px;*/
-            font-size: 35px;
+            /*font-size: 35px;*/
+            font-size: 28px;
             color: inherit;
             line-height: 14px;
             letter-spacing: 0.045em;

@@ -6,13 +6,11 @@ import {FaPeopleRoof} from "react-icons/fa6";
 import {MdOutlineContacts} from "react-icons/md";
 import {LiaShippingFastSolid} from "react-icons/lia";
 import {BsFillQuestionSquareFill} from "react-icons/bs";
-import {HiOutlineSwitchHorizontal} from "react-icons/hi";
-import {LuLogOut} from "react-icons/lu";
 import styles from './navbar.module.css';
 import {useRouter} from "next/router";
-import {IoIosArrowBack} from "react-icons/io";
 import {IoMdArrowDropleft} from "react-icons/io";
 import {useMediaQuery} from "@mantine/hooks";
+import AuthBtn from "@/components/elements/Btns/AuthBtn/AuthBtn";
 
 const menu = [
 	{label: "Головна", link: "/", icon: AiOutlineHome},
@@ -24,7 +22,7 @@ const menu = [
 ]
 
 export function Navbar() {
-	const isMedia567 = useMediaQuery( '(min-width: 567px)')
+	const isMedia567 = useMediaQuery('(min-width: 567px)')
 	const [active, setActive] = useState('/');
 	const [miniMobMenu, setMiniMobMenu] = useState(false);
 	const router = useRouter()
@@ -52,11 +50,16 @@ export function Navbar() {
 	));
 	
 	return (
-		<div ref={asideWidthRef} className={`${styles.navbar__wrap} ${miniMobMenu && !isMedia567 ? styles.navbar__mini_mob_close : ""}`}>
+		<div ref={asideWidthRef}
+		     className={`${styles.navbar__wrap} ${miniMobMenu && !isMedia567 ? styles.navbar__mini_mob_close : ""}`}>
 			<nav className={`${styles.navbar}`}>
 				<div className={`${styles.navbarMain}`}>
 					<ul className={`${styles.links_wrap} `}>
 						{links}
+						{!isMedia567 &&
+						<li style={{overflow: "hidden",display: "flex",alignItems: "center",justifyContent: "center",padding:"10px 0"}}>
+							{!isMedia567 && <AuthBtn/>}
+						</li>}
 					</ul>
 				</div>
 				

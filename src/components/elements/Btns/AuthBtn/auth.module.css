@@ -1,0 +1,66 @@
+.signin {
+    &__button {
+        color: var(--m-accent-400);
+        background-color: var(--m-primary-100);
+        border: 1px solid var(--main-borders);
+        padding: 0 8px;
+        height: 40px;
+
+        @media screen and (max-width: 567px) {
+            padding: 0 8px;
+            height: 36px;
+
+            & span > span:first-child {
+                display: none;
+            }
+        }
+
+        & > span {
+            gap: 4px;
+        }
+
+        & span[data-position='left'] {
+            margin: 0;
+        }
+
+        & span[data-position='right'] {
+            margin: 0;
+        }
+
+        &_mini {
+            color: var(--m-accent-400);
+            background-color: var(--m-primary-100);
+            border: 1px solid var(--main-borders);
+            height: 40px;
+            width: 40px;
+            font-size: 18px;
+            padding: 0;
+            border-radius: 50%;
+
+            & > span {
+                gap: 4px;
+            }
+
+            & span[data-position='left'] {
+                margin: 0;
+            }
+
+            & span[data-position='right'] {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.account {
+    &__avatar {
+        height: 40px;
+        width: 40px;
+        border-radius: 8px;
+        background-color: var(--m-primary-100);
+
+        svg {
+            color: var(--m-accent-400);
+        }
+    }
+}

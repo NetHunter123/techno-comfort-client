@@ -1,4 +1,5 @@
 .navbar {
+
     &__wrap {
         width: var(--navbar-width);
         /*width: 0;*/
@@ -44,6 +45,7 @@
     transition: transform 0.3s ease-in-out;
     z-index: 10;
 
+
     @media screen and (max-width: 1200px) {
         padding: 10px;
     }
@@ -60,8 +62,11 @@
         border-bottom: 1px solid var(--main-borders);
         border-radius: 0 10px 0px 0;
     }
+    /*@media screen and (min-width: 567px) and (max-height: 400px) {
+        height: 100%;
+    }*/
 
-    &__btn_mini_menu {
+        &__btn_mini_menu {
         position: absolute;
         bottom: -30.5px;
         left: 0;
@@ -78,6 +83,10 @@
         cursor: pointer;
         transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out, width 0.3s ease-in-out;
 
+        @media (min-width: 567px) {
+            display: none;
+        }
+
         & svg {
             transition: transform 0.3s ease-in-out
         }
@@ -85,7 +94,28 @@
 }
 
 .navbarMain {
+    max-height: 100%;
+    overflow-y:auto;
     flex: 1;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #454545;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: gray;
+    }
+    //max-height: calc(100% - var(--header-h) - 90px);
 }
 
 .links_wrap {

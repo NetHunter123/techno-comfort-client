@@ -1,18 +1,34 @@
 import React from 'react';
 import styles from './product-card.module.css';
-import {Skeleton} from "@mantine/core";
 import {useMediaQuery} from "@mantine/hooks";
-import {LiaCartPlusSolid} from "react-icons/lia";
-import {useRouter} from "next/router";
 import {useUnit} from "effector-react/effector-react.mjs";
-import {$shoppingCart} from "@/context/shoping-cart";
+import {$cartStore, addToCart, removeFromCart} from "@/context/cart";
+import {BsCartDash, BsCartPlus} from "react-icons/bs";
 
 
 const ProductCard = ({product}) => {
 	const isMedia567 = useMediaQuery('(min-width: 567px)')
-	// const shoppingCart = useUnit($shoppingCart);
-	// const isInCart = shoppingCart.some((cartItem) => cartItem.id === product.id);
+	const addToCartProvider = useUnit(addToCart)
+	const removeFromCartProvider = useUnit(removeFromCart)
+	
+	const cart = useUnit($cartStore);
+	const isInCart = cart.find(item => +item.id === +product.id) !== undefined;
 	let firstImage = JSON.parse(product.images)[0]
+	
+	
+	const handleAddToCart = () => {
+		addToCartProvider(product)
+	}
+	const handleRemoveToCart = () => {
+		removeFromCartProvider(product.id)
+	}
+	
+	const handleCartChange = () => {
+		if (isInCart) {
+			handleRemoveToCart(product.id)
+		} else handleAddToCart(product);
+	}
+	
 	
 	return (
 		<div className={styles.product_card}>
@@ -26,14 +42,19 @@ const ProductCard = ({product}) => {
 					<div className={styles.product_card__available}>Available now : <span>{product.in_stock}</span></div>
 				</div>
 			</div>
-			<div className={styles.product_card__btn}>
-				<a className={styles.product_card__cart} href="#">
+			<div className={styles.product_card__btn}
+			     onClick={() => {
+				     handleCartChange()
+			     }}
+			>
+				<div className={styles.product_card__cart}>
 					<span className={styles.product_card__price}>${product.price}</span>
 					<span className={styles.product_card__add_to_cart}>
               {/*<span>Add in cart</span>*/}
-						<span><LiaCartPlusSolid/></span>
+						{!isInCart ? <span><BsCartPlus/></span> : <span><BsCartDash/></span>
+						}
 					</span>
-				</a>
+				</div>
 			</div>
 		</div>
 	)

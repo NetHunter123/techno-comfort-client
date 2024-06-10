@@ -28,13 +28,13 @@ const ProductsOffer = ({title, offerSrc}) => {
 		loadProducts()
 	}, []);
 	
-	console.log("productsOffer", productsOffer)
+	// console.log("productsOffer", productsOffer)
 	return (
 		<section className={`${styles.products} section-c`}>
 			<h2 className={"section_title"}>{title}</h2>
 			<div className={styles.products__wapper}>
 				{loading ?
-					[...Array(4)].map(() => (<Skeleton className={styles.products__sceleton} visible={loading}>
+					[...Array(4)].map((i,index) => (<Skeleton key={index} className={styles.products__sceleton} visible={loading}>
 						</Skeleton>
 					))
 					: productsOffer ? productsOffer.map((product) => {

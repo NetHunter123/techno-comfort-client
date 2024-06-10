@@ -1,13 +1,13 @@
 .item {
-
     display: flex;
+    align-items: center;
     gap: 15px;
     background-color: var(--m-bg-100);
     border-radius: 15px;
     border: 1px solid var(--main-borders);
     color: var(--m-accent-400);
-    overflow: hidden;
     padding: 8px;
+
 
     &__img {
         height: 90px;
@@ -15,8 +15,13 @@
         object-fit: cover;
     }
 
-    &__info{
+    &__info {
         width: 100%;
+
+        &__top{
+            display: flex;
+            justify-content: space-between;
+        }
     }
 
     &__title {
@@ -30,14 +35,30 @@
         height: 16px;
 
         & input {
+            padding: 0;
+            text-align: center;
             //background-color: ;
             height: 16px;
             color: var(--m-accent-400);
+            border: 0px;
+            outline: none;
+            &:active {
+                border: 0px;
+                outline: none;
+            }
+
+            &:focus {
+
+                border: 0px;
+                outline: none;
+
+            }
         }
     }
 
     &__inner {
         display: flex;
+        gap: 5px;
         width: 100%;
         justify-content: space-between;
     }
@@ -57,6 +78,7 @@
     }
 
     &__in_stock {
+        text-align: right;
         align-self: end;
     }
 }

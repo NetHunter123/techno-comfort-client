@@ -9,6 +9,7 @@ import bgImg from "@/../public/forest-unsplash.jpg"
 import styles from '@/components/modules/AuthForms/auth.module.css'
 
 const AuthPage = () => {
+	
   const isMedia800 = useMediaQuery(800)
   const switchCtn = useRef()
   const switchC1 = useRef()
@@ -19,9 +20,10 @@ const AuthPage = () => {
   const bContainer = useRef()
 
   const switchForm = () => {
+
     switchCtn.current.classList.add(styles.is_gx)
 
-    setTimeout(() => switchCtn.current.classList.remove(styles.is_gx), 1500)
+    setTimeout(() => switchCtn.current?.classList?.remove(styles.is_gx), 1500)
 
     switchCtn.current.classList.toggle(styles.is_txr)
     switchCircle1.current.classList.toggle(styles.is_txr)
