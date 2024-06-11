@@ -48,14 +48,19 @@ const ShoppingCart = () => {
 	};
 	
 	const handleConfirmOffer = async () => {
-		const check = await checkAuthFx()
-		setUserP(check)
-		if (check) {
-			close()
-			router.push('/order-process');
-		} else {
-			toast.error("Будьласка авторизуйтесь для оформлення замовлення!")
+		// const check = await checkAuthFx()
+		// setUserP(check)
+		// if (check) {
+		const orderProcess = router.pathname !== "/order-process"
+		if (orderProcess) {
+		close()
+		router.push('/order-process');
+		}else {
+			toast.error("Ви вже на сторінці оформлення замовлення")
 		}
+		// } else {
+		// 	toast.error("Будьласка авторизуйтесь для оформлення замовлення!")
+		// }
 	}
 	
 	const content = cartItems
@@ -99,10 +104,9 @@ const ShoppingCart = () => {
 				<div className={styles.cart__footer}>
 					<p className={styles.cart__footer__total}>Загальна сума: {totalPrice}</p>
 					<Button
-						component={Link}
-						href="/"
+						component={"button"}
 						onClick={handleConfirmOffer}
-						className={styles.signin__button}
+						className={styles.order__button}
 						variant="light"
 						color="var(--m-accent-400)"
 						rightSection={<IoIosArrowRoundForward/>}

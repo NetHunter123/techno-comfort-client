@@ -11,9 +11,12 @@ import {$categoriesStore, setCategories} from "@/context/categories";
 import SortSelect from "@/components/elements/SortSelect/SortSelect";
 import ProductFilters from "@/components/modules/ProductFilters/ProductFilters";
 import PaginationModule from "@/components/modules/Pagination/Pagination";
+import ProductFiltersModal from "@/components/modules/ProductFiltersModal/ProductFiltersModal";
+import {useMediaQuery} from "@mantine/hooks";
 
 
 const CategoryProductsPage = ({queryCategory, currCategory}) => {
+	const isMedia768 = useMediaQuery('(min-width: 992px)');
 	const {id: categoryId} = currCategory
 	const [url, setURL] = useState("");
 	const [pageNumber, setPageNumber] = useState(1);
@@ -97,6 +100,7 @@ const CategoryProductsPage = ({queryCategory, currCategory}) => {
 			<div className={styles.catalog__wrapper}>
 				<div className={styles.catalog__products}>
 					<div className={styles.catalog__topbar}>
+						<ProductFiltersModal currCategory={currCategory} handleFilterChange={handleFilterChange}/>
 						<SortSelect handleSortChange={handleSortChange}/>
 					</div>
 					<ul className={styles.products__wrap}>
@@ -109,11 +113,13 @@ const CategoryProductsPage = ({queryCategory, currCategory}) => {
 							}) : <h2>Товари відсутні...</h2>
 						}
 					</ul>
-						<PaginationModule pages={products.meta?.pages} activePage={pageNumber} setPageNumber={setPageNumber}/>
+					<PaginationModule pages={products.meta?.pages} activePage={pageNumber} setPageNumber={setPageNumber}/>
 				</div>
-				<div className={styles.catalog__filters}>
-					<ProductFilters filtersJson={currCategory.filters} handleFilterChange={handleFilterChange}/>
-				</div>
+				{isMedia768 &&
+					<div className={styles.catalog__filters}>
+						<ProductFilters filtersJson={currCategory.filters} handleFilterChange={handleFilterChange}/>
+					</div>
+				}
 			</div>
 		</section>
 	)

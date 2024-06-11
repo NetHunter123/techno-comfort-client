@@ -115,7 +115,7 @@
 
 }
 
-.signin__button {
+.order__button {
     background-color: var(--m-primary-100);
     gap: 0;
     padding: 0 8px 0 12px;

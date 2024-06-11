@@ -43,7 +43,7 @@ const CategoriesPage = () => {
 		<section className={`${styles.categories__root} section-c`}>
 			
 			<h2 className={'section_title'}>Категорії</h2>
-			<Grid>
+			<Grid justify="center">
 				{loading ?
 					[...Array(6)].map(() => (
 						<Grid.Col span={{xs: 12, sm: 6,}}>
@@ -52,7 +52,7 @@ const CategoriesPage = () => {
 					))
 					: categories ? categories.map((category) => {
 						return (
-							<Grid.Col span={{xs: 12, sm: 6,}}>
+							<Grid.Col span={{xs: 12, sm: 6,}} >
 								<CategoryCard category={category}/>
 							</Grid.Col>
 						)

@@ -4,28 +4,32 @@ import {Button, Menu} from "@mantine/core";
 import {SlLogin} from "react-icons/sl";
 import Link from "next/link";
 import {useUnit} from "effector-react";
-import {$userStore, getUser} from "@/context/user";
+import {$userStore, setUser} from "@/context/user";
 import {CiLogout} from "react-icons/ci";
 import {useMediaQuery} from "@mantine/hooks";
 import {checkAuthFx, logOutFx} from "@/app/api/auth";
 
 const AuthBtn = () => {
 	const isMedia567 = useMediaQuery('(min-width: 567px)')
-	const user = useUnit($userStore);
-	const [user, setUser] = useState({});
+	const userProvider = useUnit($userStore);
+	const setUserP = useUnit(setUser);
+	const [user, setUserState] = useState(userProvider);
 	
 	const checkAuth = async () => {
 		const check = await checkAuthFx()
+		
+		setUserState(check)
 		setUserP(check)
 	}
 	
 	useEffect(() => {
-	
+		checkAuth()
 	}, []);
 	
 	
 	const handleLogout = () => {
 		logOutFx()
+		setUserState(false)
 	}
 	
 	
@@ -49,7 +53,7 @@ const AuthBtn = () => {
 					variant="light"
 					color="var(--m-accent-400)"
 				>
-					VD
+					{`${user.name?.substring(0, 1).toUpperCase()}${user.surname?.substring(0, 1).toUpperCase()}`}
 				</Button>
 			</Menu.Target>
 			

@@ -1,0 +1,32 @@
+.filter{
+    &__button{
+        color: var(--m-accent-400);
+        background-color: var(--m-primary-100) ;
+        border: 1px solid var(--main-borders);
+
+        font-weight: 400;
+
+        & > span {
+            gap: 8px;
+        }
+
+        & span[data-position='left'] {
+            margin: 0;
+        }
+
+        & span[data-position='right'] {
+            margin: 0;
+        }
+
+        &_inner {
+
+        }
+    }
+
+    &__modal{
+        display: none;
+    }
+}
+.modal{
+    display: none;
+}

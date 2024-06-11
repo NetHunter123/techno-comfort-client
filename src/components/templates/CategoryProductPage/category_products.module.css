@@ -37,7 +37,8 @@
 
     &__topbar{
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+        align-items: flex-end;
         padding: 20px 0;
 
     }
