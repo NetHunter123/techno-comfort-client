@@ -1,0 +1,130 @@
+.product {
+    &__root {
+        padding-top: 10px;
+    }
+
+
+
+    &__top {
+        background-color: var(--m-bg-200);
+        border-radius: 15px;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    &__images {
+        padding: 20px;
+        background-color: var(--m-bg-100);
+        height: fit-content;
+        border-radius: 15px;
+    }
+
+    &__info {
+        padding: 20px;
+        height: 100%;
+        border-radius: 15px;
+
+        &_inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+
+    &__title {
+        font-size: 36px;
+        color: var(--m-accent-400);
+        margin-bottom: 40px;
+    }
+
+    &__stock_info {
+        margin-bottom: 30px;
+    }
+
+    &__available {
+        font-size: 18px;
+        color: var(--m-accent-100);
+        margin-bottom: 10px;
+        & span {
+            color: var(--m-accent-200);
+        }
+    }
+
+    &__bage {
+        padding: 10px 20px;
+        border-radius: 20px;
+        width: fit-content;
+        background-color: var(--m-primary-200);
+        border: 1px solid var(--m-accent-400);
+        color: var(--m-accent-400);
+    }
+    &__vendor {
+
+    }
+
+    &__control {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+    &__price {
+        font-size: 32px;
+        color: var(--m-accent-200);
+    }
+    &__cart_btn {
+
+        font-size: 22px;
+        height: auto;
+        padding: 14px 16px;
+        color: var(--m-accent-400);
+        border-radius: 12px;
+        background-color: var(--m-primary-200);
+
+        & :global(.mantine-Button-label){
+            display: flex;
+            gap: 20px;
+
+            & span{
+                font-size: 28px;
+            }
+        }
+
+        &:hover{
+            background-color: var(--m-primary-100);
+        }
+    }
+    &__subtitle{
+        line-height: 1;
+        font-size: 34px;
+        color: var(--m-accent-400);
+        margin-bottom: 20px;
+    }
+    &__desc{
+        font-size: 18px;
+        color: var(--m-accent-100);
+        &__text{
+            line-height: 2;
+        }
+    }
+    &__bottom {
+        background-color: var(--m-bg-200);
+        border-radius: 15px;
+        padding: 10px;
+        line-height: 2px;
+        color: var(--m-accent-400);
+
+        &_inner{
+            padding: 20px;
+        }
+    }
+
+}
+
+.product__top__wrap {
+    width: 100%;
+    background-color: var(--m-bg-200);
+    margin-bottom: 20px;
+}

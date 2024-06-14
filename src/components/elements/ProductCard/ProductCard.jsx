@@ -4,6 +4,8 @@ import {useMediaQuery} from "@mantine/hooks";
 import {useUnit} from "effector-react/effector-react.mjs";
 import {$cartStore, addToCart, removeFromCart} from "@/context/cart";
 import {BsCartDash, BsCartPlus} from "react-icons/bs";
+import Link from "next/link";
+import {useRouter} from "next/router";
 
 
 const ProductCard = ({product}) => {
@@ -29,19 +31,18 @@ const ProductCard = ({product}) => {
 		} else handleAddToCart(product);
 	}
 	
-	
 	return (
 		<div className={styles.product_card}>
-			<div className={styles.product_card__info}>
+			<Link className={styles.product_card__info} href={`/product/${product.vendor_code}`}>
 				<img className={styles.product_card__img} src={firstImage} alt={product.product_name}/>
 				<div className={styles.product_card__details}>
 					<div className={styles.product_card__inner}>
 						<span className={styles.product_card__name}>{product.product_name}</span>
 						<span className={styles.product_card__producer}>{product.producer.producer_name}</span>
 					</div>
-					<div className={styles.product_card__available}>Available now : <span>{product.in_stock}</span></div>
+					<div className={styles.product_card__available}>Наявно: <span>{product.in_stock}</span></div>
 				</div>
-			</div>
+			</Link>
 			<div className={styles.product_card__btn}
 			     onClick={() => {
 				     handleCartChange()

@@ -41,8 +41,8 @@ const SortSelect = ({props,handleSortChange}) => {
 			className={styles.select}
 			onChange={orderChange}
 			styles={{
-				dropdown: {maxWidth: "240px", width:"100%"},
-				option: {padding: "6px 4px"},
+				dropdown: {maxWidth: "240px", width:"100%",minWidth:"233px"},
+				option: {padding: "16px 4px"},
 				optionContent: {gap: "0px"},
 				label:{textAlign: "right", width:"100%", fontSize: "14px"},
 			}}

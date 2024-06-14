@@ -1,9 +1,11 @@
 @import "@mantine/core/styles.css";
-/*@import 'keen-slider/keen-slider.min.css';
-@import "keen-slider.css";*/
+
 @import "variables.css";
 @import "carousel/embla.css";
 @import "carousel/main-hero.carousel.css";
+@import 'react-medium-image-zoom/dist/styles.css';
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 @import "reset.css";
 
 @font-face {
@@ -39,14 +41,65 @@
 }
 
 
-
-
 * {
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth !important;
+}
+button[data-module="filtersModalBtn"]{
+    color: var(--m-accent-400);
+    background-color: var(--m-primary-100) ;
+    border: 1px solid var(--main-borders);
+
+    font-weight: 400;
+    font-size: 16px;
+
+    @media screen and (max-width: 500px){
+        padding: 0 12px;
+    }
+    & > span {
+        gap: 8px;
+
+
+        & span:first-child {
+            margin: 0;
+
+            @media screen and (max-width: 500px){
+                display: none;
+            }
+        }
+
+        & span:last-child {
+            margin: 0;
+        }
+    }
+}
+.mantine-Modal-root[data-module="filtersModal"] {
+    & .mantine-Modal-body {
+        padding: 0px 20px 30px 20px;
+    }
+
+    & section {
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #454545;
+            border-radius: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: gray;
+        }
+    }
 }
 
 body {
@@ -99,7 +152,8 @@ body {
         padding: 20px 0px;;
     }
 }
-.section_title{
+
+.section_title {
     text-align: center;
     font-size: 30px;
     margin-bottom: 30px;
@@ -109,6 +163,7 @@ body {
         margin-bottom: 20px;
     }
 }
+
 .container {
     max-width: 1280px;
     padding: 0 15px;

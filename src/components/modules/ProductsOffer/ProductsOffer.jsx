@@ -14,7 +14,7 @@ const ProductsOffer = ({title, offerSrc}) => {
 		try {
 			setLoading(true)
 			const products = await getBestsellersOrNewProductsFx(`${offerSrc}`)
-			setProductsOffer(products.rows)
+			setProductsOffer(products.rows.slice(0,4))
 			
 		} catch (error) {
 			setProductsOffer(false)

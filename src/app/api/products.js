@@ -14,3 +14,11 @@ export const getProductsFx = createEffect(async (url) => {
 	// 	console.log(err)
 	// }
 })
+export const getOneProductFx = createEffect(async (vendor) => {
+	// try {
+	const {data} = await api.get(`products/find/${vendor}`);
+	return data
+	// } catch (err) {
+	// 	console.log(err)
+	// }
+})

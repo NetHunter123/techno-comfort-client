@@ -22,11 +22,4 @@
 
         }
     }
-
-    &__modal{
-        display: none;
-    }
-}
-.modal{
-    display: none;
 }
